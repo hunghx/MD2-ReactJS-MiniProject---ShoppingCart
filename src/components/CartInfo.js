@@ -1,29 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
 
-export default function CartInfo() {
-    const listCart = useSelector(state => state.listCart);
-    // Coi nhu tổng tiền đã được lưu trữ trong localStorage với tên totalAmount
-    let totalAmount = localStorage.getItem("totalAmount");
-    let elementInfo = "";
-    if (listCart.length == 0) {
-        elementInfo = <tr>
-            <th colSpan={6}>Empty product in your cart</th>
-        </tr>
-    } else {
-        elementInfo = <tr>
-            <td colSpan={4}>
-                There are <b>{listCart.length}</b> items in your shopping cart.
-            </td>
-            <td colSpan={2} className="total-price text-left">
-                {totalAmount} USD
-            </td>
-        </tr>
-    }
-    return (
-        <tfoot id="my-cart-footer">
-            {elementInfo}
-
-        </tfoot>
-    )
+export default function CartInfo({ size, total }) {
+  // dựa vào số lượng sản phẩm trong giỏ hàng để hiển thị ra thông tin tương ứng
+  // nếu không cosanr phẩm trong giỏ hàng thì hiện giỏ hàng trống , nếu có thì in ra số sản phẩm và tổng giá
+  let info =
+    size === 0 ? (
+      <tr>
+        <th colSpan={6}>Empty product in your cart</th>
+      </tr>
+    ) : (
+      <tr>
+        <td colSpan={4}>
+          There are <b>{size}</b> items in your shopping cart.
+        </td>
+        <td colSpan={2} className="total-price text-left">
+          Total: {total} USD
+        </td>
+      </tr>
+    );
+  return <tfoot id="my-cart-footer">{info}</tfoot>;
 }

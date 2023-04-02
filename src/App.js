@@ -1,6 +1,6 @@
-import './App.css';
-import ListCart from './components/ListCart';
-import ListProduct from './components/ListProduct';
+import "./App.css";
+import ListCart from "./components/ListCart";
+import ListProduct from "./components/ListProduct";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       {/* TITLE : START */}
       <div className="page-header">
         <h1>
-          Project 04 - Shopping Cart <small>ReactJS</small>
+          MiniProject - Shopping Cart <small>ReactJS</small>
         </h1>
       </div>
       {/* TITLE : END */}
@@ -21,7 +21,6 @@ function App() {
         {/* CART : END */}
       </div>
     </div>
-
   );
 }
 
